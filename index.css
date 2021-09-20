@@ -1,6 +1,6 @@
 :root {
     --duration: 5s;
-    --background-color: black;
+    --background-color: black;  /*#f3236d*/
     --color: white;
     --font: Comic Sans MS, Comic Sans, cursive;
 }
@@ -55,11 +55,20 @@ body {
     animation: rainbow linear 1.5s infinite;
 }
 
-.options {
-
-}
-.rangeContainer {
+.colorContainer {
     text-align: center;
+}
+
+.colorContainer button {
+    background-color: var(--background-color);
+    border: 5px solid var(--color);;
+
+    color: var(--color);
+    font: var(--font);
+
+    padding: 10px 30px;
+    display: block;
+    margin: 30px auto;
 }
 
 @keyframes loading {

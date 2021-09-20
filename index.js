@@ -1,7 +1,7 @@
-const $range = document.querySelector('#colorChanger');
+const $color = document.querySelector('#colorChanger');
 const $root = document.querySelector('html');
 
-$range.addEventListener('mousemove', function () {
-    let color = "#" + (this.value & 0x00FFFFFF).toString(16).padStart(6, '0');
+$color.addEventListener('click', function () {
+    let color = '#' + Math.round(Math.random() * 16777216).toString(16);
     $root.style.setProperty('--background-color', color);
 }, false);
