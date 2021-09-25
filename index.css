@@ -3,6 +3,7 @@
     --background-color: black;  /*#f3236d*/
     --color: white;
     --font: Comic Sans MS, Comic Sans, cursive;
+    --pseudo-width: 100%;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
 
 .box::before {
     content: "";
-    width: 100%;
+    width: var(--pseudo-width);
     height: 100%;
     background-color: inherit;
     position: absolute;
@@ -46,6 +47,13 @@ body {
     min-height: 80px;
 }
 
+.container-rotate {
+    min-height: 180px;
+    animation: rotation linear 1.5s infinite;
+    position: relative;
+}
+
+
 .circle {
     height: 60px;
     width: 60px;
@@ -55,11 +63,36 @@ body {
     animation: rainbow linear 1.5s infinite;
 }
 
-.colorContainer {
-    text-align: center;
+.circle-rotate {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: yellow;
+    animation: rainbow linear 1.5s infinite;
+    position: absolute;
+}
+.circle-rotate:nth-child(1) {
+    top: 40%;
 }
 
-.colorContainer button {
+.circle-rotate:nth-child(2) {
+    top: 20%;
+    left: 55%;
+}
+
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.holder {
+    text-align: center;
+    max-height: 100px;
+}
+
+.primaryButton {
     background-color: var(--background-color);
     border: 5px solid var(--color);;
 
@@ -69,6 +102,17 @@ body {
     padding: 10px 30px;
     display: block;
     margin: 30px auto;
+
+    transition: padding .2s linear;
+}
+
+.holder {
+    width: 300px;
+}
+
+.primaryButton:hover {
+    padding: 15px 45px;
+    transition: padding .2s linear;
 }
 
 @keyframes loading {
@@ -89,5 +133,14 @@ body {
     }
     100% {
         filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
